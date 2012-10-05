@@ -54,3 +54,13 @@ class Message(models.Model):
 	cache_roomnames = models.TextField()
 	was_data_detected = models.BooleanField()
 	was_deduplicated = models.BooleanField()
+
+class Handle(models.Model):
+	class Meta:
+		db_table = 'handle'
+
+	rowid = models.IntegerField(primary_key=True)
+	id = models.TextField()
+	country = models.TextField()
+	service = models.TextField()
+	uncanonicalized_id = models.TextField()
