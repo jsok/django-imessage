@@ -54,7 +54,7 @@ class Message(models.Model):
 	text = models.TextField()
 	replace = models.IntegerField()
 	service_center = models.TextField()
-	handle_id = models.IntegerField()
+	handle = models.ForeignKey('Handle')
 	subject = models.TextField()
 	country = models.TextField()
 	attributedBody = BlobField()
@@ -97,3 +97,6 @@ class Handle(models.Model):
 	country = models.TextField()
 	service = models.TextField()
 	uncanonicalized_id = models.TextField()
+
+	def __unicode__(self):
+		return self.id

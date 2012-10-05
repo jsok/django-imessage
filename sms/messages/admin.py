@@ -3,7 +3,7 @@ from django.contrib import admin
 
 
 class MessageAdmin(admin.ModelAdmin):
-	list_display = ('date', 'service', 'handle_id', 'account', 'text')
+	list_display = ('date', 'service', 'handle', 'account', 'text')
 
 class HandleAdmin(admin.ModelAdmin):
 	list_display = ('id', 'country', 'service')
