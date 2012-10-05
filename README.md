@@ -21,6 +21,14 @@ Requirements are:
  - django 1.4
  - pytz (for timezone info)
 
-First, edit `<core/settings.py>` and set your TIME_ZONE.
-Then drop your SMS database in `<db/sms.db>`.
-Finally, run `<manage.py syncdb>` and `<manage.py runserver>` and fire up your browser.
+1. edit `core/settings.py` and set your TIME_ZONE.
+2. Then drop your SMS database in `db/sms.db`.
+3. run `manage.py syncdb`
+4. `manage.py runserver`
+5. Point your browser at the admin page `http://localhost:8000/admin`, where you can browse your messages.
+
+Future TODO
+-----------
+ - A frontend which remotely resembles Messages.app to browse your SMSes
+ - Some way of searching your messages
+ - Group chat isn't yet supported
