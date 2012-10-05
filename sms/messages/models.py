@@ -30,7 +30,7 @@ class IMessageTimeStampField(models.DateTimeField):
 		super(IMessageTimeStampField, self)
 		try:
 			app_tz = timezone(settings.TIME_ZONE)
-			return datetime.fromtimestamp(value+IMessageTimeStampField).replace(tzinfo=app_tz)
+			return datetime.fromtimestamp(value+self.IMESSAGE_DELTA).replace(tzinfo=app_tz)
 		except:
 			return value
 
