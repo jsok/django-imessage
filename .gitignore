@@ -1,0 +1,4 @@
+env/*
+sms/db
+*.pyc
+*.swp
