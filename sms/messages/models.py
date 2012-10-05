@@ -1,5 +1,8 @@
 from django.db import models
+from django.conf import settings
 from datetime import datetime
+from time import mktime
+from pytz import timezone
 
 class BlobField(models.Field):
 
@@ -9,8 +12,38 @@ class BlobField(models.Field):
 		return 'blob'
 		
 
-class IMessageTimeStamp(models.Field):
+class IMessageTimeStampField(models.DateTimeField):
 	description = "iMessage timestamp field where epoch=1/1/2001"
+
+	# Delta between 1/1/2001 and unix epoch
+	IMESSAGE_DELTA = 978307200
+
+	__metaclass__ = models.SubfieldBase
+
+	def __init__(self, null=False, blank=False, **kwargs):
+		super(IMessageTimeStampField, self).__init__(**kwargs)
+
+	def db_type(self, connection):
+		return 'int'
+
+	def to_python(self, value):
+		super(IMessageTimeStampField, self)
+		try:
+			app_tz = timezone(settings.TIME_ZONE)
+			return datetime.fromtimestamp(value+IMessageTimeStampField).replace(tzinfo=app_tz)
+		except:
+			return value
+
+
+	def get_db_prep_value(self, value):
+		if value==None:
+			return None
+		return mktime(value.timetuple())
+
+	def get_prep_value(self, value):
+		if value==None:
+			return None
+		return mktime(value.timetuple())
 
 class Message(models.Model):
 	class Meta:
@@ -31,9 +64,9 @@ class Message(models.Model):
 	account = models.TextField()
 	account_guid = models.TextField()
 	error = models.IntegerField()
-	date = models.IntegerField()
-	date_read = models.IntegerField()
-	date_delivered = models.IntegerField()
+	date = IMessageTimeStampField()
+	date_read = IMessageTimeStampField()
+	date_delivered = IMessageTimeStampField()
 	is_delivered = models.BooleanField()
 	is_finished = models.BooleanField()
 	is_emote = models.BooleanField()
