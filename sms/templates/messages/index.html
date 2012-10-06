@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+<div id="header">
+  <h1>Messages</h1>
+</div>
+
+<ul>
+  {% for handle in handles %}
+  <li><a href="{{handle.rowid}}">{{ handle.id }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+

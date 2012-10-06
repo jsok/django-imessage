@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "UiUIKit/stylesheets/iphone.css" %}">
+  </head>
+
+  <body id="{% block body_id %}{% endblock %}">
+    {%block content %}{% endblock %}
+  </body>
+</html>

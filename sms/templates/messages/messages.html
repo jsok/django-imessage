@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Messages from {{ handle.id }}{% endblock %}
+
+{% block body_id %}chat{% endblock %}
+
+{% block content %}
+  <div id="header">
+    <h1>Messages from {{ handle.id }}</h1>
+    <a href="/messages" id="backButton">Back</a>
+  </div>
+
+  {% for message in handle.message_set.all %}
+
+    {% if message.is_from_me %}
+    <div class="bubble right">
+      <p class="lemon">{{ message.text }}</p>
+    </div>
+    {% else %}
+    <div class="bubble left">
+      <p class="clear">{{ message.text }}</p>
+    </div>
+    {% endif %}
+
+  {% endfor %}
+
+
+{% endblock %}
+
