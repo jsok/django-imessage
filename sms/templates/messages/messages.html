@@ -13,7 +13,12 @@
 
     {% if message.is_from_me %}
     <div class="bubble right">
-      <p class="lemon">{{ message.text }}</p>
+      {% if message.handle.service == "iMessage" %}
+      <p class="aqua">
+      {% else %}
+      <p class="lime">
+      {% endif %}
+      {{ message.text }}</p>
     </div>
     {% else %}
     <div class="bubble left">
