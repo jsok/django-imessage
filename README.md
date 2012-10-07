@@ -17,7 +17,7 @@ The SMS database has been analysed by many and its schema is well known. I've ta
 
 Screenshot
 ----------
-![Screenshot](https://github.com/jsok/django-imessage/master/screenshot.png)
+![Screenshot](https://raw.github.com/jsok/django-imessage/master/screenshot.png)
 
 Setup
 -----
