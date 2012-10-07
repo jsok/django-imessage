@@ -15,6 +15,9 @@ How?
 ----
 The SMS database has been analysed by many and its schema is well known. I've taken some of this info and used it to convince django's ORM into reading it.
 
+You can find the database in your iOS backup:
+~/Library/Application Support/Mobile Sync/Backup/<device id>/3d0d7e5fb2ce288813306e4d4636395e047a3d28
+
 Screenshot
 ----------
 ![Screenshot](https://raw.github.com/jsok/django-imessage/master/screenshot.png)
@@ -27,7 +30,7 @@ Requirements are:
  - [UiUIKit 2.1](http://code.google.com/p/iphone-universal/)
 
 1. edit `core/settings.py` and set your TIME_ZONE.
-2. Then drop your SMS database in `db/sms.db`.
+2. Then drop your SMS database in `db/sms.db` (rename it).
 3. Unzip UiUIKit into `static/UiUIKit`
 4. run `manage.py syncdb`
 5. `manage.py runserver`
@@ -35,5 +38,6 @@ Requirements are:
 
 Future TODO
 -----------
+ - Messages.app style timestamps (supressed timestamps when messages are received within a given time delta)
  - Some way of searching your messages
  - Group chat isn't yet supported
