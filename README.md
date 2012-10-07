@@ -16,7 +16,7 @@ How?
 The SMS database has been analysed by many and its schema is well known. I've taken some of this info and used it to convince django's ORM into reading it.
 
 You can find the database in your iOS backup:
-~/Library/Application Support/Mobile Sync/Backup/<device id>/3d0d7e5fb2ce288813306e4d4636395e047a3d28
+`~/Library/Application Support/Mobile Sync/Backup/<device id>/3d0d7e5fb2ce288813306e4d4636395e047a3d28`
 
 Screenshot
 ----------
