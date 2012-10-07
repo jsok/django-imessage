@@ -15,6 +15,10 @@ How?
 ----
 The SMS database has been analysed by many and its schema is well known. I've taken some of this info and used it to convince django's ORM into reading it.
 
+Screenshot
+----------
+![Screenshot](https://github.com/jsok/django-imessage/master/screenshot.png)
+
 Setup
 -----
 Requirements are:
